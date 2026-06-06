@@ -1,10 +1,8 @@
 # Agentic AI Slidev Deck
 
-内部分享演示文档，主题为「Agentic AI 入门与业务落地」。
+Fork 自 [riverscn/intro-agentic-ai](https://github.com/riverscn/intro-agentic-ai)（MIT License），主题为「Agentic AI 入门与业务落地」的分享演示文档。
 
-[在线演示](https://intro-agentic-ai.lishun.me)
-
-[演讲录像](https://www.bilibili.com/video/BV1v6o5BrEiT/)
+**[在线演示](https://intro-agentic-ai.pages.dev/)** · [演讲录像](https://www.bilibili.com/video/BV1v6o5BrEiT/) · [部署指南](docs/deploy-guide.md)
 
 ## 运行
 
@@ -21,33 +19,9 @@ pnpm dev
 pnpm build
 ```
 
-## 部署到 Cloudflare
+## 部署
 
-仓库已包含 [`wrangler.jsonc`](wrangler.jsonc)，当前配置会把 `pnpm build` 产出的 `dist/` 目录作为静态资源发布到 Cloudflare Workers。
-
-首次部署前，先登录 Cloudflare：
-
-```bash
-pnpm dlx wrangler login
-```
-
-如需修改线上项目名，可先编辑 `wrangler.jsonc` 里的 `name` 字段；当前默认值为 `intro-agentic-ai`。
-
-执行构建并部署：
-
-```bash
-pnpm build
-pnpm dlx wrangler deploy
-```
-
-部署成功后，Wrangler 会输出对应的 `*.workers.dev` 地址，可直接访问分享。
-
-后续更新内容时，重新执行同一组命令即可完成覆盖发布：
-
-```bash
-pnpm build
-pnpm dlx wrangler deploy
-```
+项目部署在 Cloudflare Pages，push 到 main 分支会自动构建部署。详见 [部署指南](docs/deploy-guide.md)。
 
 如需导出 PDF 或 PPTX，可在安装浏览器导出依赖后执行：
 
